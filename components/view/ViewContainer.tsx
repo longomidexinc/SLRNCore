@@ -1,13 +1,25 @@
-import React, { FC, memo, useMemo } from 'react';
-import { StyleProp, ViewStyle, View, StyleSheet } from 'react-native';
+import React, {FC, memo, useMemo} from 'react';
+import {StyleProp, ViewStyle, View, StyleSheet} from 'react-native';
 
 type Props = {
   styles?: StyleProp<ViewStyle>;
   children?: JSX.Element[] | JSX.Element;
   position?: 'left' | 'right' | 'top' | 'bottom' | undefined;
-  alignChildren?: 'center' | 'left' | 'right' | 'vertical' | 'horizontal' | 'center|vertical' | undefined;
+  alignChildren?:
+    | 'center'
+    | 'left'
+    | 'right'
+    | 'vertical'
+    | 'horizontal'
+    | 'center|vertical'
+    | undefined;
 };
-const ViewContainer: FC<Props> = ({ styles, children, position, alignChildren }) => {
+const ViewContainer: FC<Props> = ({
+  styles,
+  children,
+  position,
+  alignChildren,
+}) => {
   const positionStyle = useMemo((): StyleProp<ViewStyle> => {
     const pos: any = {};
     if (!!position) {
